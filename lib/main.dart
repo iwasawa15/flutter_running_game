@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'game/game.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // Flame.device.fullScreen();
+  WidgetsFlutterBinding.ensureInitialized();
+  Flame.device.fullScreen();
+  Flame.device.setLandscape();
   runApp(MyApp());
 }
 
