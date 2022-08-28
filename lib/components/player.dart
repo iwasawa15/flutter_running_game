@@ -8,11 +8,6 @@ class Player extends SpriteAnimationComponent {
   late final SpriteAnimation _idleAnimation;
   late final SpriteAnimation _runAnimation;
 
-  Player()
-      : super(
-          size: Vector2.all(50.0),
-        );
-
   @override
   Future<void> onLoad() async {
     super.onLoad();
