@@ -1,10 +1,13 @@
+import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
+import 'package:run_game/components/enemy.dart';
 import 'package:run_game/components/parallax.dart';
 import 'package:run_game/components/player.dart';
 
-class RunGame extends FlameGame {
+class RunGame extends FlameGame with HasTappableComponents, TapCallbacks {
   final _player = Player();
   final _parallax = Parallax();
+  final _enemy = Enemy();
 
   @override
   Future<void> onLoad() async {
@@ -12,14 +15,12 @@ class RunGame extends FlameGame {
     add(_parallax);
 
     add(_player);
-    _player.position = Vector2(100, 50);
+    add(_enemy);
   }
 
   @override
-  void onGameResize(Vector2 canvasSize) {
-    super.onGameResize(canvasSize);
-
-    _player.height = _player.width = canvasSize.x / 10;
-    _player.x = _player.width;
+  void onTapDown(TapDownEvent event) {
+    super.onTapDown(event);
+    _player.jump();
   }
 }
